@@ -12,6 +12,9 @@ namespace UserRegistration
             Console.WriteLine("Enter Last Name of User");
             string LName = Console.ReadLine();
             regex.RegexName(LName);
+            Console.WriteLine("Enter Email of User");
+            string Email = Console.ReadLine();
+            regex.RegexEmail(Email);
         }
     }
 }
