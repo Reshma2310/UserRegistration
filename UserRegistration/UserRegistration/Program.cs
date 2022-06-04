@@ -15,6 +15,9 @@ namespace UserRegistration
             Console.WriteLine("Enter Email of User");
             string Email = Console.ReadLine();
             regex.RegexEmail(Email);
+            Console.WriteLine("Enter your Phone Number");
+            string PhoneNo = Console.ReadLine();
+            regex.RegexPhoneNo(PhoneNo);
         }
     }
 }
