@@ -18,6 +18,9 @@ namespace UserRegistration
             Console.WriteLine("Enter your Phone Number");
             string PhoneNo = Console.ReadLine();
             regex.RegexPhoneNo(PhoneNo);
+            Console.WriteLine("Enter your Password Number");
+            string Password = Console.ReadLine();
+            regex.RegexPassword(Password);
         }
     }
 }
