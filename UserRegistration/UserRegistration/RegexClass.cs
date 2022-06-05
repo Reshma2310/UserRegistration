@@ -12,7 +12,7 @@ namespace UserRegistration
         const string NAME = "^[A-Z]{1}[a-zA-Z]{2,}$";        
         const string EMAIL = "^[0-9a-zA-Z]{3,}([0-9a-zA-Z._-])*@[a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})*$";
         const string PHONENO = "^([0-9]{2}[ ][0-9]{10})$";
-        const string PASSWORD = "^[0-9a-zA-Z]{8,}$";
+        const string PASSWORD = "^[A-Z]{1}[0-9a-zA-Z]{7,}$";
         public void RegexName(string Name)
         {
             if (Regex.IsMatch(Name, NAME))
