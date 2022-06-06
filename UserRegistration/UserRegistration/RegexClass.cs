@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Diagnostics.CodeAnalysis;
 
 namespace UserRegistration
 {
@@ -13,6 +14,7 @@ namespace UserRegistration
         const string EMAIL = "^[0-9a-zA-Z]{3,}([0-9a-zA-Z._-])*@[a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})*$";
         const string PHONENO = "^([0-9]{2}[ ][0-9]{10})$";        
         const string PASSWORD = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[&!@#$%^*_-]).{8,}$";
+        const string EMAILFILE = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
         public void RegexName(string Name)
         {
             if (Regex.IsMatch(Name, NAME))
@@ -48,6 +50,14 @@ namespace UserRegistration
                 return;
             }
             Console.WriteLine("Password is Not Valid");
+        }
+        public string RegexEMailCheck(string Email)
+        {
+            if (Regex.IsMatch(Email, EMAILFILE))
+            {
+                return "Valid";
+            }
+            return "Not Valid";
         }
     }
 }
