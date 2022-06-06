@@ -6,7 +6,7 @@ namespace UserRegistration
         static void Main(string[] args)
         {
             RegexClass regex = new RegexClass();
-            /*Console.WriteLine("Enter First Name of User");
+            Console.WriteLine("Enter First Name of User");
             string FName = Console.ReadLine();
             regex.RegexName(FName);
             Console.WriteLine("Enter Last Name of User");
@@ -17,7 +17,7 @@ namespace UserRegistration
             regex.RegexEmail(Email);
             Console.WriteLine("Enter your Phone Number");
             string PhoneNo = Console.ReadLine();
-            regex.RegexPhoneNo(PhoneNo);*/
+            regex.RegexPhoneNo(PhoneNo);
             Console.WriteLine("Enter your Password");
             string Password = Console.ReadLine();
             regex.RegexPassword(Password);
