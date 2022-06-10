@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Diagnostics.CodeAnalysis;
-
 namespace UserRegistration
-{
+{    
     public class RegexClass
-    {        
+    {
+        public string input;
+        public RegexClass(string input)
+        {
+            this.input = input;
+        }
         const string NAME = "^[A-Z]{1}[a-zA-Z]{2,}$";        
         const string EMAIL = "^[0-9a-zA-Z]{3,}([0-9a-zA-Z._-])*@[a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})*$";
         const string PHONENO = "^([0-9]{2}[ ][0-9]{10})$";        
@@ -55,9 +59,9 @@ namespace UserRegistration
             Console.WriteLine("Password is Not Valid");
             return "Invalid";
         }
-        public string RegexEMailCheck(string Email)
+        public string RegexEMailCheck()
         {
-            if (Regex.IsMatch(Email, EMAILFILE))
+            if (Regex.IsMatch(input, EMAILFILE))
             {
                 return "Valid";
             }

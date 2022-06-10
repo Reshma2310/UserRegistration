@@ -5,7 +5,7 @@ namespace UserRegistration
     {
         static void Main(string[] args)
         {
-            RegexClass regex = new RegexClass();
+            /*RegexClass regex = new RegexClass();
             Console.WriteLine("Enter First Name of User");
             string FName = Console.ReadLine();
             regex.RegexName(FName);
@@ -20,12 +20,13 @@ namespace UserRegistration
             regex.RegexPhoneNo(PhoneNo);
             Console.WriteLine("Enter your Password");
             string Password = Console.ReadLine();
-            regex.RegexPassword(Password);
+            regex.RegexPassword(Password);*/
             string mails = @"D:\BridgeLabs\UserRegistration\UserRegistration\UserRegistration\EmailsTextFile.txt";
             string[] mailArray = File.ReadAllLines(mails);
             for (int i = 0; i < mailArray.Length; i++)
             {
-                string result = regex.RegexEMailCheck(mailArray[i]);
+                RegexClass regexp = new RegexClass(mailArray[i]);
+                string result = regexp.RegexEMailCheck();
                 Console.WriteLine(mailArray[i] + "   is   " + result);
             }
         }

@@ -1,8 +1,9 @@
 namespace UserRegistrationTest
 {
     public class Tests
-    {        
-        [Test]
+    {
+        //UC10
+        /*[Test]
         public void GivenFirstName_RegexFirstName_ReturnValid()
         {
             UserRegistration.RegexClass regex = new UserRegistration.RegexClass();
@@ -41,6 +42,30 @@ namespace UserRegistrationTest
             string Pwd = "Rgmail*1996";
             string actualResult = regex.RegexPassword(Pwd);
             Assert.Pass("Valid", actualResult);
+        }*/
+        [Test]
+        public void GivenValidEmailFile_RegexEmail_ReturnValid()
+        {
+            string mails = @"D:\BridgeLabs\UserRegistration\UserRegistration\UserRegistration\EmailTestForValid.txt";
+            string[] mailArray = File.ReadAllLines(mails);
+            for (int i = 0; i < mailArray.Length; i++)
+            {
+                UserRegistration.RegexClass regexp = new UserRegistration.RegexClass(mailArray[i]);
+                string result = regexp.RegexEMailCheck();
+                Assert.Pass("Valid", result);
+            }
+        }
+        [Test]
+        public void GivenInvalidEmailFile_RegexEmail_ReturnInvalid()
+        {
+            string mails = @"D:\BridgeLabs\UserRegistration\UserRegistration\UserRegistration\EmailTestForValid.txt";
+            string[] mailArray = File.ReadAllLines(mails);
+            for (int i = 0; i < mailArray.Length; i++)
+            {
+                UserRegistration.RegexClass regexp = new UserRegistration.RegexClass(mailArray[i]);
+                string result = regexp.RegexEMailCheck();
+                Assert.Pass("Not Valid", result);
+            }
         }
     }
 }
