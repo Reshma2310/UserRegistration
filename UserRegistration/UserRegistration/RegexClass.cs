@@ -15,41 +15,45 @@ namespace UserRegistration
         const string PHONENO = "^([0-9]{2}[ ][0-9]{10})$";        
         const string PASSWORD = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[&!@#$%^*_-]).{8,}$";
         const string EMAILFILE = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
-        public void RegexName(string Name)
+        public string RegexName(string Name)
         {
             if (Regex.IsMatch(Name, NAME))
             {
                 Console.WriteLine("Input Name is Valid");
-                return;
+                return "Valid";
             }
             Console.WriteLine("Input Name is Not Valid");
+            return "Invalid";
         }
-        public void RegexEmail(string Mail)
+        public string RegexEmail(string Mail)
         {
             if (Regex.IsMatch(Mail, EMAIL))
             {
                 Console.WriteLine("Email is Valid");
-                return;
+                return "Valid";
             }
             Console.WriteLine("Email is Not Valid");
+            return "Invalid";
         }
-        public void RegexPhoneNo(string Number)
+        public string RegexPhoneNo(string Number)
         {
             if (Regex.IsMatch(Number, PHONENO))
             {
                 Console.WriteLine("Mobile Number is Valid");
-                return;
+                return "Valid";
             }
             Console.WriteLine("Mobile Number is Not Valid");
+            return "Invalid";
         }
-        public void RegexPassword(string password)
+        public string RegexPassword(string password)
         {
             if (Regex.IsMatch(password, PASSWORD))
             {
                 Console.WriteLine("Password is Valid");
-                return;
+                return "Valid";
             }
             Console.WriteLine("Password is Not Valid");
+            return "Invalid";
         }
         public string RegexEMailCheck(string Email)
         {
