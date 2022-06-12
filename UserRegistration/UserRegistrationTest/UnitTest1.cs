@@ -3,46 +3,90 @@ namespace UserRegistrationTest
     public class Tests
     {
         //UC10
-        /*[Test]
-        public void GivenFirstName_RegexFirstName_ReturnValid()
+        [Test]
+        public void GivenFirstNameValid_RegexExpression_ReturnValid()
         {
-            UserRegistration.RegexClass regex = new UserRegistration.RegexClass();
-            string firstName = "Reshma";
-            string actualResult = regex.RegexName(firstName);
-            Assert.Pass("Valid", actualResult);
+            try
+            {
+                UserRegistration.RegexClass regex = new UserRegistration.RegexClass("Reshma");                
+                string actualResult = regex.RegexName();
+                Assert.Pass("Valid", actualResult);
+            }
+            catch (UserRegistration.UserException exc)
+            {
+                Assert.AreEqual("Invalid User Name", exc.Message);
+            }
         }
         [Test]
-        public void GivenLastName_RegexlastName_ReturnValid()
+        public void GivenInvalidFirstName_Process_ReturnInvalid()
         {
-            UserRegistration.RegexClass regex = new UserRegistration.RegexClass();
-            string lastName = "Rose";
-            string actualResult = regex.RegexName(lastName);
-            Assert.Pass("Valid", actualResult);
+            try
+            {
+                UserRegistration.RegexClass regex = new UserRegistration.RegexClass("shma");
+                string actualResult = regex.RegexName();
+                Assert.Pass("Valid", actualResult);
+            }
+            catch (UserRegistration.UserException exc)
+            {
+                Assert.AreEqual("Invalid User Name", exc.Message);
+            }
         }
         [Test]
-        public void GivenEmail_RegexEmail_ReturnValid()
+        public void GivenInvalidLastName_Process_ReturnInvalid()
         {
-            UserRegistration.RegexClass regex = new UserRegistration.RegexClass();
-            string Email = "abc.xyz@bl.co.in";
-            string actualResult = regex.RegexEmail(Email);
-            Assert.Pass("Valid", actualResult);
+            try
+            {
+                UserRegistration.RegexClass regex = new UserRegistration.RegexClass("rose");
+                string actualResult = regex.RegexName();
+                Assert.Pass("Valid", actualResult);
+            }
+            catch (UserRegistration.UserException exc)
+            {
+                Assert.AreEqual("Invalid Last Name", exc.Message);
+            }
         }
         [Test]
-        public void GivenPhoneNo_RegexPhoneNo_ReturnValid()
+        public void GivenInvalidEmail_RegexEmail_ReturnInvalid()
         {
-            UserRegistration.RegexClass regex = new UserRegistration.RegexClass();
-            string PhoneNo = "91 5642389546";
-            string actualResult = regex.RegexEmail(PhoneNo);
-            Assert.Pass("Valid", actualResult);
+            try
+            {
+                UserRegistration.RegexClass regex = new UserRegistration.RegexClass(".xyz@bl.co.in");
+                string actualResult = regex.RegexEmail();
+                Assert.Pass("Valid", actualResult);
+            }
+            catch (UserRegistration.UserException exc)
+            {
+                Assert.AreEqual("Invalid Email", exc.Message);
+            }
         }
         [Test]
-        public void GivenPassward_RegexPassword_ReturnValid()
+        public void GivenInvalidPhoneNo_RegexPhoneNo_ReturnInvalid()
         {
-            UserRegistration.RegexClass regex = new UserRegistration.RegexClass();
-            string Pwd = "Rgmail*1996";
-            string actualResult = regex.RegexPassword(Pwd);
-            Assert.Pass("Valid", actualResult);
-        }*/
+            try
+            {
+                UserRegistration.RegexClass regex = new UserRegistration.RegexClass("642389546");
+                string actualResult = regex.RegexEmail();
+                Assert.Pass("Valid", actualResult);
+            }
+            catch (UserRegistration.UserException exc)
+            {
+                Assert.AreEqual("Invalid Mobile Number", exc.Message);
+            }
+        }
+        [Test]
+        public void GivenInvalidPassward_RegexPassword_ReturnInvalid()
+        {
+            try
+            {
+                UserRegistration.RegexClass regex = new UserRegistration.RegexClass("1996abcd");
+                string actualResult = regex.RegexPassword();
+                Assert.Pass("Valid", actualResult);
+            }
+            catch (UserRegistration.UserException exc)
+            {
+                Assert.AreEqual("Invalid Password", exc.Message);
+            }
+        }
         [Test]
         public void GivenValidEmailFile_RegexEmail_ReturnValid()
         {
