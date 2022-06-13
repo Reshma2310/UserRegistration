@@ -18,12 +18,13 @@ namespace UserRegistration
         const string EMAIL = "^[0-9a-zA-Z]{3,}([0-9a-zA-Z._-])*@[a-zA-Z]{2,}[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3})*$";
         const string PHONENO = "^([0-9]{2}[ ][0-9]{10})$";        
         const string PASSWORD = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[&!@#$%^*_-]).{8,}$";
-        const string EMAILFILE = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
+        const string EMAILFILE = "^[0-9A-Za-z]+([._+-][0-9A-Za-z]+)*[@][0-9A-Za-z]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";        
         public string RegexName()
         {
             try
             {
-                if (Regex.IsMatch(input, NAME))
+                Func<string, bool> result = input => (Regex.IsMatch(input, NAME));
+                if (result(input))
                 {
                     Console.WriteLine("Input Name is Valid");
                     return "Valid";
@@ -33,14 +34,15 @@ namespace UserRegistration
             }
             catch
             {
-                throw new UserException(UserException.ExceptionType.INVALID_MESSAGE, "Invalid User Name");
+                throw new UserException(UserException.ExceptionType.INVALID_NAME, "Invalid User Name");
             }
         }
         public string RegexEmail()
         {
             try
             {
-                if (Regex.IsMatch(input, EMAIL))
+                Func<string, bool> result = input => (Regex.IsMatch(input, EMAIL));
+                if (result(input))
                 {
                     Console.WriteLine("Email is Valid");
                     return "Valid";
@@ -50,14 +52,15 @@ namespace UserRegistration
             }
             catch
             {
-                throw new UserException(UserException.ExceptionType.INVALID_MESSAGE, "Invalid User Name");
+                throw new UserException(UserException.ExceptionType.INVALID_NAME, "Invalid User Name");
             }
         }
         public string RegexPhoneNo()
         {
             try
             {
-                if (Regex.IsMatch(input, PHONENO))
+                Func<string, bool> result = input => (Regex.IsMatch(input, PHONENO));
+                if (result(input))
                 {
                     Console.WriteLine("Mobile Number is Valid");
                     return "Valid";
@@ -67,14 +70,15 @@ namespace UserRegistration
             }
             catch
             {
-                throw new UserException(UserException.ExceptionType.INVALID_MESSAGE, "Invalid User Name");
+                throw new UserException(UserException.ExceptionType.INVALID_NUMBER, "Invalid Mobile Number");
             }
         }
         public string RegexPassword()
         {
             try
             {
-                if (Regex.IsMatch(input, PASSWORD))
+                Func<string, bool> result = input => (Regex.IsMatch(input, PASSWORD));
+                if (result(input))
                 {
                     Console.WriteLine("Password is Valid");
                     return "Valid";
@@ -84,12 +88,13 @@ namespace UserRegistration
             }
             catch
             {
-                throw new UserException(UserException.ExceptionType.INVALID_MESSAGE, "Invalid User Name");
+                throw new UserException(UserException.ExceptionType.INVALID_PASSWORD, "Invalid Password");
             }
         }
         public string RegexEMailCheck()
         {
-            if (Regex.IsMatch(input, EMAILFILE))
+            Func<string, bool> result = input => (Regex.IsMatch(input, EMAILFILE));
+            if (result(input))
             {
                 return "Valid";
             }
