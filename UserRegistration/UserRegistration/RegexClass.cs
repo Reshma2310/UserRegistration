@@ -52,7 +52,7 @@ namespace UserRegistration
             }
             catch
             {
-                throw new UserException(UserException.ExceptionType.INVALID_NAME, "Invalid User Name");
+                throw new UserException(UserException.ExceptionType.INVALID_EMAIL, "Invalid Email");
             }
         }
         public string RegexPhoneNo()
