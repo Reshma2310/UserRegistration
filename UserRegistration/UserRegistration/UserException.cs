@@ -10,7 +10,7 @@ namespace UserRegistration
     {
         public enum ExceptionType
         {
-            INVALID_NAME, EMPTY_MESSAGE, INVALID_PASSWORD, INVALID_NUMBER
+            INVALID_NAME, EMPTY_MESSAGE, INVALID_PASSWORD, INVALID_NUMBER, INVALID_EMAIL
         }
         public ExceptionType Type;
         public UserException(ExceptionType type, string message) : base(message)
